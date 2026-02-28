@@ -1,0 +1,64 @@
+package bank;
+import java.util.Scanner;
+
+public class bankSystem {
+	public static void ShowMenu(){
+	System.out.println("==========MENU==========");
+	System.out.println("1. Deposit");
+	System.out.println("2. Withdraw");
+	System.out.println("3. Check Balance");
+	System.out.println("4. Exit");
+	System.out.println("Choose option:");
+}
+	public static void main (String[]args) {
+		Scanner input =new Scanner(System.in);
+		int TotalBalance=0;
+		System.out.println("Enter your name: ");
+		String name= input.nextLine();
+	
+		System.out.println("Hello " + name);
+		while (true) {
+			ShowMenu();
+			int choice= input.nextInt();
+			
+			if (choice==1) {
+				
+				System.out.println("Enter number to Deposit");
+				int num= input.nextInt();
+				if(num>0) {
+				TotalBalance+=num;
+				System.out.println("Deposit "+num+" successfully");
+				System.out.println("Total balance = "+TotalBalance);}
+				else {
+					System.err.println("number to Deposit must be greater than zero!");
+				}
+			}
+			
+			else if (choice==2) {
+				System.out.println("Enter number to Withdraw");
+				int num= input.nextInt();
+				if (num<=TotalBalance) {
+					System.out.println("Withdraw "+num+" successfully");
+					TotalBalance-=num;
+					System.out.println("Total balance = "+TotalBalance);
+				}
+				else {
+					System.err.println("Insufficient balance!");				
+				}
+			}
+			else if (choice==3) {
+				System.out.println("Total balance = "+TotalBalance);
+	
+			}
+			else if (choice==4) {
+				System.out.println("Good bye "+name);
+	
+			break;
+			}
+			else {
+				System.err.println("Invalid Choice");
+	
+			}
+	}
+}
+}
